@@ -1,9 +1,8 @@
 <template>
     <span class="material-icons btn-contrast" @click="this.changeTheme">contrast</span>
     <DownloadForm />
-    <ProgressBar
-
-    />
+    <span class="downloadState">{{this.$store.state.downloadState.msg + this.$store.state.failedMsg}}</span>
+    <ProgressBar v-if="this.$store.state.downloadState.state === 'downloading'" />
     <Video v-if="this.$store.state.downloadState.state === 'downloading' ||
                  this.$store.state.downloadState.state === 'downloaded'"
     />
